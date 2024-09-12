@@ -66,15 +66,15 @@ export default function Home() {
             </h1>
             <p>Andorid ve IOS için hemen indir</p>
             <div className='store-icons'>
-              <a href="https://play.google.com/store/apps/details?id=com.bilal.ozlu.nnkadar" style={{padding:0, marginRight: 50}}>
-                <img src={play_store.src} height={200}/>
+              <a href="https://play.google.com/store/apps/details?id=com.bilal.ozlu.nnkadar" style={{padding:0, marginRight: 30}}>
+                <img src={play_store.src} height={180}/>
               </a>
               <a href="https://apps.apple.com/tr/app/nnkadar/id6642640210" style={{padding:0}}>
-                <img src={app_store.src} height={230}/>
+                <img src={app_store.src} height={205}/>
               </a>
             </div>
           </div>
-          <img src={phone_splash.src} height={480} className="splash-screen"/>
+          <img src={phone_splash.src} height={500} className="splash-screen"/>
         </section>
         <section id="hakkinda" className="section">
           <div className='about-left'>
