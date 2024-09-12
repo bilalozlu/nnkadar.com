@@ -74,7 +74,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <img src={phone_splash.src} height={500} className="splash-screen"/>
+          <img src={phone_splash.src} className="splash-screen"/>
         </section>
         <section id="hakkinda" className="section">
           <div className='about-left'>

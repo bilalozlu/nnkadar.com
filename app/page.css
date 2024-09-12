@@ -69,6 +69,10 @@
     font-size: 3rem;
   }
 
+  .splash-screen {
+    height: 500px;
+  }
+
   .store-icons {
     display: flex;
     align-items: center;
@@ -100,10 +104,11 @@
     width: 25%;
     margin-left: auto;
     margin-top: 5%;
+    margin-right: 3%
   }
 
   .bullet {
-    height: 22%;
+    height: 23%;
   }
 
   .bullet:hover {
@@ -117,7 +122,49 @@
     font-size: 2rem;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) and (min-Height: 500px) {
+    .download-app {
+      width: 60%;
+    }
+    .splash-screen {
+      height: 400px;  
+    }
+    .about-phone {
+      height: 400px;
+    }
+    .about-right {
+      width: 30%;
+    }
+    .about-left {
+      width: 30%;
+    }
+  }
+
+  @media (max-width: 720px) and (min-Height: 500px) {
+    .links {
+      display: none;
+    }
+    .download-app {
+      width: 70%;
+    }
+    .splash-screen {
+      height: 300px;  
+    }
+    .about-phone {
+      height: 300px;
+    }
+    .about-right {
+      width: 33%;
+    }
+    .about-left {
+      width: 33%;
+    }
+  }
+
+  @media (max-width: 600px ), (max-Height: 500px) {
+    .links {
+      display: none;
+    }
     .splash-screen {
       display: none;
     }
