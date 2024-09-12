@@ -1,101 +1,100 @@
-import Image from "next/image";
+"use client";
+import logo from './logo.png';
+import phone_splash from './phone_splash.png';
+import login_screen from './login_screen.png'
+import app_store from './app_store.svg';
+import play_store from './play_store.svg';
+
+import React, { useEffect, useState } from 'react';
+import './page.css';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [activeSection, setActiveSection] = useState<string |null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  
+  return (
+    <div className="app">
+      <nav className="navbar">
+        <div>
+          <img src={logo.src} height={80}/>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="links">
+          <div className={activeSection === 'uygulama' ? 'active' : ''}>
+            <a href="#uygulama">Uygulama</a>
+          </div>
+          <div className={activeSection === 'hakkinda' ? 'active' : ''}>
+            <a href="#hakkinda">Hakkında</a>
+          </div>
+          <div className={activeSection === 'iletisim' ? 'active' : ''}>
+            <a href="#iletisim">İletişim</a>
+          </div>
+        </div>
+      </nav>
+
+      <div className="sections">
+        <section id="uygulama" className="section">
+          <div className="download-app">
+            <h1>
+            Merak ettiğin her fiyat nnkadar'da
+            </h1>
+            <p>Andorid ve IOS için hemen indir</p>
+            <div className='store-icons'>
+              <a href="https://play.google.com/store/apps/details?id=com.bilal.ozlu.nnkadar" style={{padding:0, marginRight: 50}}>
+                <img src={play_store.src} height={200}/>
+              </a>
+              <a href="https://apps.apple.com/tr/app/nnkadar/id6642640210" style={{padding:0}}>
+                <img src={app_store.src} height={230}/>
+              </a>
+            </div>
+          </div>
+          <img src={phone_splash.src} height={480} className="splash-screen"/>
+        </section>
+        <section id="hakkinda" className="section">
+          <div className='about-left'>
+          <p className='bullet'>⦿ Merak ettiğiniz her şeyin fiyatından haberdar olun</p>
+            <p className='bullet'>⦿ Kolayca randevu alın</p>
+            <p className='bullet'>⦿ İşletmenizi ücretsiz kaydedin</p>
+            <p className='bullet'>⦿ Tüm Türkiye'de görünür olun</p>
+          </div>
+          <img src={login_screen.src} className="about-phone"/>
+          <div className='about-right'>
+            <p className='bullet'>⦿ Anında On Binlerce kullanıcıya ulaşma imkanı yakalayın</p>
+            <p className='bullet'>⦿ Dijital kolay randevu ile statü atlayın</p>
+            <p className='bullet'>⦿ Rakiplerinize fark atın, geç kalmayın</p>
+            <p className='bullet'>⦿ Hızlı, güvenli, pratik, kullanışlı</p>
+          </div>
+        </section>
+        <section id="iletisim" className="section">
+          ✉ nnkadar2024@gmail.com
+        </section>
+      </div>
     </div>
   );
 }
