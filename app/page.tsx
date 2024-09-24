@@ -92,7 +92,8 @@ export default function Home() {
           </div>
         </section>
         <section id="iletisim" className="section">
-          ✉ nnkadar2024@gmail.com
+          <p>📞 05518895522</p>
+          <p>📧 nnkadar2024@gmail.com</p>
         </section>
       </div>
     </div>

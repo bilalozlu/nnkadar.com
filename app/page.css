@@ -119,7 +119,10 @@
     background-color: #333;
     color: #00bbff;
     height: 200px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
   @media (max-width: 900px) and (min-Height: 500px) {
